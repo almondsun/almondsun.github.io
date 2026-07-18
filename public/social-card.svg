@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Martín Ramírez Espinosa</title>
+  <desc id="desc">Research-oriented engineer building inspectable systems across models, software, and signals.</desc>
+  <rect width="1200" height="630" fill="#f3efe5"/>
+  <g stroke="#c9c1b1" stroke-opacity=".45"><path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200"/><path d="M150 0v630M300 0v630M450 0v630M600 0v630M750 0v630M900 0v630M1050 0v630"/></g>
+  <circle cx="1045" cy="105" r="42" fill="#b76d20"/>
+  <path d="M892 0 650 630" stroke="#23627d" stroke-width="8"/>
+  <text x="90" y="115" fill="#b76d20" font-family="ui-monospace, monospace" font-size="22" font-weight="700" letter-spacing="3">ALMONDSUN · ENGINEERING PORTFOLIO</text>
+  <text x="90" y="270" fill="#17242d" font-family="Georgia, serif" font-size="72" font-weight="600">Martín Ramírez</text>
+  <text x="90" y="350" fill="#17242d" font-family="Georgia, serif" font-size="72" font-weight="600">Espinosa</text>
+  <text x="94" y="430" fill="#4d5c64" font-family="Arial, sans-serif" font-size="29">Inspectable systems across models, software, and signals.</text>
+  <rect x="90" y="500" width="440" height="54" rx="27" fill="#c9e3e7"/>
+  <circle cx="121" cy="527" r="7" fill="#23627d"/>
+  <text x="143" y="535" fill="#23627d" font-family="ui-monospace, monospace" font-size="18" font-weight="700">RESEARCH-ORIENTED ENGINEER</text>
+</svg>

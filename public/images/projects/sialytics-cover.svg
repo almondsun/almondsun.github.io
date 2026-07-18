@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">SIAlytics editorial project cover</title>
+  <desc id="desc">A stylized academic analytics workbook with validated calculations and charts.</desc>
+  <rect width="1280" height="720" fill="#123047"/>
+  <g opacity=".16" stroke="#d9edf0"><path d="M0 120h1280M0 240h1280M0 360h1280M0 480h1280M0 600h1280"/><path d="M160 0v720M320 0v720M480 0v720M640 0v720M800 0v720M960 0v720M1120 0v720"/></g>
+  <rect x="100" y="92" width="710" height="536" rx="18" fill="#f4f0e5"/><rect x="100" y="92" width="710" height="72" rx="18" fill="#2e745f"/><rect x="100" y="146" width="710" height="18" fill="#2e745f"/>
+  <g fill="#ccd8d2"><rect x="145" y="205" width="260" height="34" rx="5"/><rect x="440" y="205" width="145" height="34" rx="5"/><rect x="620" y="205" width="145" height="34" rx="5"/></g>
+  <g fill="#e4c36f"><rect x="145" y="294" width="76" height="245" rx="6"/><rect x="249" y="350" width="76" height="189" rx="6"/><rect x="353" y="262" width="76" height="277" rx="6"/><rect x="457" y="320" width="76" height="219" rx="6"/></g>
+  <path d="m576 466 55-80 55 26 74-113" fill="none" stroke="#23627d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="875" y="260" fill="#e4c36f" font-family="ui-monospace, monospace" font-size="24" font-weight="700" letter-spacing="3">ACADEMIC ANALYTICS</text>
+  <text x="875" y="350" fill="#f4f0e5" font-family="Georgia, serif" font-size="70" font-weight="600">SIAlytics</text>
+  <text x="880" y="410" fill="#cfe1e5" font-family="Arial, sans-serif" font-size="25">Local extraction.</text><text x="880" y="450" fill="#cfe1e5" font-family="Arial, sans-serif" font-size="25">Fail-closed validation.</text><text x="880" y="490" fill="#cfe1e5" font-family="Arial, sans-serif" font-size="25">Inspectable results.</text>
+</svg>
