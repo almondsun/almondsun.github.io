@@ -346,59 +346,28 @@ h3 {
 
 .portrait {
   position: relative;
-  display: grid;
   aspect-ratio: 4 / 5;
-  align-content: end;
-  padding: 1.5rem;
+  margin: 0;
   overflow: hidden;
-  color: var(--paper);
   background: var(--ink);
   border-radius: 50% 50% 0.4rem 0.4rem;
   box-shadow: var(--shadow);
 }
 
-.portrait-grid {
+.portrait::after {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(
-      115deg,
-      transparent 48%,
-      color-mix(in srgb, var(--blue) 60%, transparent) 49% 51%,
-      transparent 52%
-    ),
-    radial-gradient(circle at 70% 22%, var(--amber) 0 6%, transparent 6.5%),
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--paper) 15%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--paper) 15%, transparent) 1px,
-      transparent 1px
-    );
-  background-size:
-    auto,
-    auto,
-    2rem 2rem,
-    2rem 2rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 45%, transparent);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
 }
 
-.portrait > span,
-.portrait > small {
-  position: relative;
-}
-.portrait > span {
-  font-family: var(--serif);
-  font-size: clamp(4rem, 9vw, 7rem);
-  line-height: 0.8;
-}
-.portrait > small {
-  margin-top: 0.8rem;
-  color: var(--blue-soft);
-  font-family: var(--mono);
-  letter-spacing: 0.1em;
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
 }
 
 .section-heading {

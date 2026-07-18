@@ -51,6 +51,14 @@ test("all project images load", async ({ page }) => {
   }
 });
 
+test("the primary portrait loads", async ({ page }) => {
+  await page.goto("/");
+  const portrait = page.getByAltText("Portrait of Martín Ramírez Espinosa");
+  await expect(portrait).toBeVisible();
+  await expect(portrait).toHaveJSProperty("complete", true);
+  expect(await portrait.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBe(1086);
+});
+
 test("unknown routes use the custom 404 page", async ({ page }) => {
   const response = await page.goto("/definitely-not-a-page/");
   expect(response?.status()).toBe(404);
