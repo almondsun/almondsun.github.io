@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="About Martín Ramírez Espinosa: Electronic Engineering and Mathematics student working across ML systems, signal processing, and reliable software."
+>
+  <header class="page-intro shell section about-intro">
+    <p class="eyebrow">About</p>
+    <h1>I like difficult systems more when their assumptions are visible.</h1>
+    <p>
+      I’m Martín, an Electronic Engineering and Mathematics student at the Universidad Nacional de
+      Colombia in Manizales. I work with the Signal Processing & Recognition Group and build across
+      machine learning, research infrastructure, local-first products, and embedded audio systems.
+    </p>
+  </header>
+
+  <section class="section section-rule shell about-grid" aria-labelledby="approach-heading">
+    <div>
+      <p class="eyebrow">Approach</p>
+      <h2 id="approach-heading">Research thinking, production discipline.</h2>
+    </div>
+    <div class="prose-stack">
+      <p>
+        My projects usually begin with a question that needs both theory and implementation: whether
+        a tokenizer comparison is actually fair, whether a research assistant can preserve the
+        passage behind a claim, whether personal analytics can work without surrendering data, or
+        where an audio system’s hardware and firmware contracts should meet.
+      </p>
+      <p>
+        I turn those questions into explicit interfaces, tests, reproducible artifacts, and honest
+        limits. I care about the behavior at boundaries—model output entering domain logic, archives
+        crossing a filesystem parser, remote evidence becoming local data, or software controlling
+        physical hardware.
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="section section-rule shell capability-section"
+    aria-labelledby="capabilities-heading"
+  >
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Engineering range</p>
+        <h2 id="capabilities-heading">Capabilities grounded in shipped work.</h2>
+      </div>
+    </div>
+    <div class="capability-grid">
+      <article>
+        <h3>Machine learning & research</h3><p>
+          PyTorch, language-model fundamentals, retrieval, evaluation design, evidence synthesis,
+          and reproducible experiments.
+        </p>
+      </article>
+      <article>
+        <h3>Software systems</h3><p>
+          Python, Rust, TypeScript, React, SQLite, browser automation, terminal interfaces, typed
+          adapters, and local-first design.
+        </p>
+      </article>
+      <article>
+        <h3>Signals & embedded engineering</h3><p>
+          Digital signal processing, C/C++, STM32, USB audio, codec integration, electronics, and
+          mixed hardware/software architecture.
+        </p>
+      </article>
+      <article>
+        <h3>Reliability</h3><p>
+          Strict typing, security boundaries, CI, branch coverage, fail-closed parsing, provenance,
+          and limitations treated as product behavior.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-rule shell opportunity" aria-labelledby="contact-heading">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-heading">Let’s work on something that has to be right.</h2>
+    </div>
+    <div>
+      <p>
+        I’m actively seeking remote or internationally oriented research-engineering, ML systems,
+        applied AI, and software opportunities compatible with my studies. I’m also open to focused
+        technical collaborations.
+      </p>
+      <div class="button-row">
+        <a class="button button-primary" href="mailto:maramirezes@unal.edu.co">Email Martín</a>
+        <a class="button button-secondary" href="https://github.com/almondsun">GitHub profile</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

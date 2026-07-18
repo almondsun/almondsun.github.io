@@ -1,0 +1,77 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = "/social-card.png" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const pageTitle =
+  title === "Home" ? "Martín Ramírez Espinosa" : `${title} · Martín Ramírez Espinosa`;
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Martín Ramírez Espinosa",
+  alternateName: "almondsun",
+  url: "https://almondsun.github.io",
+  email: "mailto:maramirezes@unal.edu.co",
+  affiliation: { "@type": "CollegeOrUniversity", name: "Universidad Nacional de Colombia" },
+  sameAs: ["https://github.com/almondsun"],
+  knowsAbout: [
+    "Machine learning systems",
+    "Research engineering",
+    "Signal processing",
+    "Embedded systems",
+    "Local-first software",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3efe5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101820" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Martín Ramírez Espinosa — research-oriented engineer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          const preferred = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme =
+            stored === "light" || stored === "dark" ? stored : preferred;
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(person)} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header />
+    <main id="main-content"><slot /></main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Machine Learning Theory editorial project cover</title>
+  <desc id="desc">A stylized kernel surface and mathematical learning-theory notation.</desc>
+  <rect width="1280" height="720" fill="#ece4d3"/>
+  <g fill="none" stroke="#23627d" stroke-width="3" opacity=".58"><ellipse cx="830" cy="360" rx="330" ry="205"/><ellipse cx="830" cy="360" rx="270" ry="165"/><ellipse cx="830" cy="360" rx="205" ry="125"/><ellipse cx="830" cy="360" rx="135" ry="82"/></g>
+  <g fill="#b76d20"><circle cx="618" cy="267" r="13"/><circle cx="737" cy="425" r="13"/><circle cx="893" cy="303" r="13"/><circle cx="1040" cy="434" r="13"/><circle cx="970" cy="219" r="13"/></g>
+  <path d="M505 560c160-315 365-315 650 0" fill="none" stroke="#17242d" stroke-width="7"/>
+  <text x="90" y="145" fill="#b76d20" font-family="ui-monospace, monospace" font-size="22" font-weight="700" letter-spacing="3">MATHEMATICAL FOUNDATIONS</text>
+  <text x="90" y="275" fill="#17242d" font-family="Georgia, serif" font-size="70" font-weight="600">Machine</text><text x="90" y="355" fill="#17242d" font-family="Georgia, serif" font-size="70" font-weight="600">Learning Theory</text>
+  <text x="94" y="435" fill="#4d5c64" font-family="Arial, sans-serif" font-size="25">Kernels · optimization · assessment</text><text x="94" y="476" fill="#4d5c64" font-family="Arial, sans-serif" font-size="25">neural networks · experiments</text>
+</svg>

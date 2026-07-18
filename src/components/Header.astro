@@ -1,0 +1,33 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const path = Astro.url.pathname;
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects/", label: "Projects" },
+  { href: "/about/", label: "About" },
+];
+---
+
+<header class="site-header">
+  <div class="shell nav-shell">
+    <a class="wordmark" href="/" aria-label="Martín Ramírez Espinosa, home">
+      <span class="wordmark-mark" aria-hidden="true">MR</span>
+      <span class="wordmark-name">Martín Ramírez Espinosa</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} aria-current={path === link.href ? "page" : undefined}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <ThemeToggle />
+  </div>
+</header>

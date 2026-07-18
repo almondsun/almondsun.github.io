@@ -1,0 +1,47 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  detailed?: boolean;
+}
+
+const { project, detailed = false } = Astro.props;
+---
+
+<article class:list={["project-card", { "project-card-detailed": detailed }]} id={project.slug}>
+  <div class:list={["project-image", { "project-image-contain": project.imageFit === "contain" }]}>
+    <img src={project.image} alt={project.imageAlt} loading="lazy" width="1280" height="720" />
+  </div>
+  <div class="project-body">
+    <p class="eyebrow">{project.eyebrow}</p>
+    <h3>{project.title}</h3>
+    <p class="project-tagline">{project.tagline}</p>
+    <p>{project.summary}</p>
+    {
+      detailed && (
+        <ul class="evidence-list">
+          {project.evidence.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      )
+    }
+    <ul class="tag-list" aria-label={`${project.title} technologies`}>
+      {project.stack.map((item) => <li>{item}</li>)}
+    </ul>
+    <div class="project-meta">
+      <span>{project.status}</span>
+      <div class="project-links">
+        {
+          project.links.map((link) => (
+            <a href={link.href}>
+              {link.label}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,22 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected research, software, data, and embedded-systems projects by Martín Ramírez Espinosa."
+>
+  <header class="page-intro shell section">
+    <p class="eyebrow">Selected projects</p>
+    <h1>Work that can be inspected, reproduced, and questioned.</h1>
+    <p>
+      Six projects selected for the engineering decisions they expose—not for the number of
+      technologies they contain. Status and limitations remain visible alongside the result.
+    </p>
+  </header>
+  <section class="shell project-list" aria-label="Project case studies">
+    {projects.map((project) => <ProjectCard project={project} detailed />)}
+  </section>
+</BaseLayout>
