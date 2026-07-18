@@ -20,14 +20,11 @@ published project evidence.
 The site has no analytics, cookies, contact form, remote fonts, or visitor tracking. Contact is
 limited to the already-public university email and GitHub account.
 
-## Portrait launch gate
+## Deployment
 
-`src/components/Portrait.astro` currently renders a polished `MR` monogram. Before public launch,
-replace it with an optimized local portrait derived from a high-resolution professional photograph.
-Do not use the current GitHub Snoopy avatar or fetch the portrait remotely at runtime.
+The production site is published at [almondsun.github.io](https://almondsun.github.io). Changes to
+`main` are built and deployed by `.github/workflows/pages.yml`; the GitHub Pages source must remain
+set to **GitHub Actions** rather than a branch-based Jekyll build.
 
-## Publication
-
-The repository remains private while the portrait and final visual review are pending. At launch,
-rename it to `almondsun.github.io`, make it public, merge the reviewed implementation into `main`,
-and enable GitHub Pages through GitHub Actions.
+The professional portrait is stored locally as an optimized, metadata-stripped WebP. The deployed
+site does not fetch profile imagery or other personal assets from third-party services at runtime.
