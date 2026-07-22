@@ -197,4 +197,6 @@ test("unknown routes use the custom 404 page", async ({ page }) => {
   await expect(
     page.getByRole("heading", { level: 1, name: "This page does not exist." }),
   ).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
+  await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
 });
