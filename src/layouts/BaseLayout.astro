@@ -7,10 +7,18 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  canonical?: boolean;
+  noindex?: boolean;
 }
 
-const { title, description, image = "/social-card.png" } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const {
+  title,
+  description,
+  image = "/social-card.png",
+  canonical: includeCanonical = true,
+  noindex = false,
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
 const pageTitle =
   title === "Home" ? "Martín Ramírez Espinosa" : `${title} · Martín Ramírez Espinosa`;
@@ -51,12 +59,13 @@ const person = {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f3efe5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#101820" media="(prefers-color-scheme: dark)" />
-    <link rel="canonical" href={canonical} />
+    {includeCanonical && <link rel="canonical" href={canonicalUrl} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {includeCanonical && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content="Martín Ramírez Espinosa — research-oriented engineer" />
     <meta name="twitter:card" content="summary_large_image" />
