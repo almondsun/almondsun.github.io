@@ -22,11 +22,11 @@ validate_pdf() {
     echo "Expected the $label résumé to contain exactly one page." >&2
     exit 1
   fi
-  if ! rg -q '^Page size:.*A4' <<<"$info"; then
+  if ! grep -Eq '^Page size:.*A4' <<<"$info"; then
     echo "Expected the $label résumé to use A4 page dimensions." >&2
     exit 1
   fi
-  if ! rg -q '^Tagged:[[:space:]]+yes' <<<"$info"; then
+  if ! grep -Eq '^Tagged:[[:space:]]+yes' <<<"$info"; then
     echo "Expected the $label résumé to include accessibility tags." >&2
     exit 1
   fi
@@ -43,7 +43,7 @@ for expected in \
   "smaLLM" \
   "Available for remote internships" \
   "English — professional working proficiency"; do
-  rg -Fq "$expected" "$generated_normalized" || {
+  grep -Fq "$expected" "$generated_normalized" || {
     echo "Generated résumé is missing required text: $expected" >&2
     exit 1
   }
