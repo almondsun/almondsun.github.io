@@ -22,7 +22,17 @@ const person = {
   url: "https://almondsun.github.io",
   email: "mailto:maramirezes@unal.edu.co",
   affiliation: { "@type": "CollegeOrUniversity", name: "Universidad Nacional de Colombia" },
-  sameAs: ["https://github.com/almondsun"],
+  memberOf: {
+    "@type": "Organization",
+    name: "Grupo de Control y Procesamiento Digital de Señales (GCPDS)",
+    url: "https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000001375",
+    parentOrganization: {
+      "@type": "CollegeOrUniversity",
+      name: "Universidad Nacional de Colombia",
+    },
+  },
+  knowsLanguage: ["Spanish", "English"],
+  sameAs: ["https://github.com/almondsun", "https://www.linkedin.com/in/martin-ramirez-espinosa/"],
   knowsAbout: [
     "Machine learning systems",
     "Research engineering",
