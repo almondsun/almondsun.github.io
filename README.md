@@ -12,8 +12,10 @@ npm run dev
 
 Run the complete validation path with `npm run check`. It verifies formatting, Astro and TypeScript
 contracts, the one-page résumé PDF, the production build, responsive browser behavior, and automated
-accessibility checks. Regenerate the committed résumé after content or print-style changes with
-`npm run resume:build`.
+accessibility checks. The browser suite contains 20 logical checks run under desktop Chrome and a
+Pixel 7 profile; its Axe coverage rejects serious and critical violations for the configured WCAG
+tags but does not replace manual accessibility review. Regenerate the committed résumé after content
+or print-style changes with `npm run resume:build`.
 
 Project claims live in `src/data/projects.ts`. The homepage deliberately features three projects;
 the Projects page presents six, with full RAGdoll and smaLLM case studies backed by typed content.

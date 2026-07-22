@@ -20,6 +20,8 @@ changes materially.
 - Run `npm run resume:check` and inspect the generated A4 PDF at 100% zoom.
 - Confirm the PDF remains one page, text-selectable, grayscale-readable, and free of private phone or
   address information.
+- Treat `Tagged: yes` as a generation check, not independent proof of semantic tag correctness or
+  screen-reader reading order.
 - Confirm the stable filename remains `Martin_Ramirez_Espinosa_Resume.pdf`.
 
 ## Site and publication
@@ -29,3 +31,8 @@ changes materially.
 - Check RAGdoll remains the first featured project and that case-study limitations remain visible.
 - Merge only after CI passes, then verify the live résumé URL, case-study routes, responsive images,
   metadata, and external-link workflow.
+- Report browser results as 20 logical checks across two profiles (40 executions), and describe Axe
+  results as serious/critical coverage for the configured WCAG tags rather than complete
+  accessibility certification.
+- Describe the scheduled link check as the configured external-link audit; preserve its documented
+  exclusions and accepted rate-limit/access-denied responses.
