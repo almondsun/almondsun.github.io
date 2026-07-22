@@ -9,9 +9,11 @@
     "format:check": "prettier --check .",
     "typecheck": "astro check",
     "build": "astro build",
+    "resume:build": "node scripts/generate-resume.mjs",
+    "resume:check": "bash scripts/check-resume.sh",
     "preview": "astro preview",
     "test:e2e": "playwright test",
-    "check": "npm run format:check && npm run typecheck && npm run build && npm run test:e2e"
+    "check": "npm run format:check && npm run typecheck && npm run resume:check && npm run build && npm run test:e2e"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.3",

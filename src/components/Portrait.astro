@@ -1,10 +1,18 @@
+---
+import { Picture } from "astro:assets";
+import portrait from "../assets/images/martin-ramirez-espinosa.webp";
+---
+
 <figure class="portrait">
-  <img
-    src="/images/martin-ramirez-espinosa.webp"
-    width="1086"
-    height="1448"
+  <Picture
+    src={portrait}
     alt="Portrait of Martín Ramírez Espinosa"
     decoding="sync"
     fetchpriority="high"
+    layout="constrained"
+    widths={[320, 480, 720, 1086]}
+    sizes="(max-width: 56rem) min(100vw - 1.25rem, 400px), min(26vw, 340px)"
+    formats={["avif"]}
+    fallbackFormat="webp"
   />
 </figure>
