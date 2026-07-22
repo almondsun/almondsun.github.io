@@ -17,6 +17,11 @@ Project claims live in `src/data/projects.ts`. The homepage deliberately feature
 the Projects page presents six. Every claim should remain supportable by the linked repository or
 published project evidence.
 
+The technical-artifact index lives in `src/data/notes.ts`. It curates existing public architecture
+notes, handbooks, and experiment reports without presenting them as a publication list or promising
+a blog schedule. Reusable profile artwork, including the LinkedIn banner source and export, lives in
+`public/brand/`.
+
 The site has no analytics, cookies, contact form, remote fonts, or visitor tracking. Contact is
 limited to the already-public university email and GitHub account.
 

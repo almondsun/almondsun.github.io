@@ -382,10 +382,44 @@ h3 {
   font-size: 0.9rem;
   font-weight: 700;
 }
-.project-grid {
+.project-grid,
+.note-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+.note-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.note-card {
+  display: flex;
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  flex-direction: column;
+}
+
+.note-card h3 {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+}
+
+.note-card > p:not(.eyebrow) {
+  color: var(--ink-soft);
+}
+
+.note-card .tag-list {
+  margin-top: auto;
+  margin-bottom: 1.25rem;
+  padding-top: 1rem;
+}
+
+.note-card .text-link {
+  width: fit-content;
 }
 
 .project-card {
@@ -512,6 +546,12 @@ h3 {
   gap: 2rem;
   padding-bottom: clamp(5rem, 10vw, 9rem);
 }
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
 .project-card-detailed {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
@@ -634,6 +674,8 @@ h3 {
     justify-content: space-between;
   }
   .project-grid,
+  .note-grid,
+  .note-list,
   .capability-grid {
     grid-template-columns: 1fr;
   }

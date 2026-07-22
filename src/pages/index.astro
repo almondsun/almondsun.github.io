@@ -1,6 +1,8 @@
 ---
 import Portrait from "../components/Portrait.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import NoteCard from "../components/NoteCard.astro";
+import { featuredNotes } from "../data/notes";
 import { featuredProjects } from "../data/projects";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -42,6 +44,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
     <div class="project-grid">
       {featuredProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="section section-rule shell" aria-labelledby="notes-heading">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Technical notes</p>
+        <h2 id="notes-heading">The reasoning behind the repository.</h2>
+      </div>
+      <a class="text-link" href="/notes/">View all six notes <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="note-grid">
+      {featuredNotes.map((note) => <NoteCard note={note} />)}
     </div>
   </section>
 

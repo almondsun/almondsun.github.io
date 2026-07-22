@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const routes = ["/", "/projects/", "/about/"] as const;
+const routes = ["/", "/projects/", "/notes/", "/about/"] as const;
 
 for (const route of routes) {
   test(`${route} renders without serious accessibility violations`, async ({ page }) => {
@@ -22,6 +22,8 @@ test("primary navigation reaches every public page", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "Projects", exact: true }).click();
   await expect(page).toHaveURL(/\/projects\/$/);
+  await page.getByRole("link", { name: "Notes", exact: true }).click();
+  await expect(page).toHaveURL(/\/notes\/$/);
   await page.getByRole("link", { name: "About", exact: true }).click();
   await expect(page).toHaveURL(/\/about\/$/);
   await page.getByRole("link", { name: /Martín Ramírez Espinosa, home/ }).click();
@@ -49,6 +51,30 @@ test("all project images load", async ({ page }) => {
       await images.nth(index).evaluate((image: HTMLImageElement) => image.naturalWidth),
     ).toBeGreaterThan(0);
   }
+});
+
+test("technical notes expose six real public artifacts", async ({ page }) => {
+  await page.goto("/notes/");
+  const notes = page.locator(".note-card");
+  await expect(notes).toHaveCount(6);
+  const links = notes.getByRole("link", { name: /Read the artifact/ });
+  await expect(links).toHaveCount(6);
+  for (let index = 0; index < 6; index += 1) {
+    await expect(links.nth(index)).toHaveAttribute("href", /^https:\/\//);
+  }
+});
+
+test("home surfaces three featured technical notes", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".note-grid .note-card")).toHaveCount(3);
+});
+
+test("professional identity metadata links GitHub, LinkedIn, and GCPDS", async ({ page }) => {
+  await page.goto("/");
+  const identity = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(identity).toContain("https://github.com/almondsun");
+  expect(identity).toContain("https://www.linkedin.com/in/martin-ramirez-espinosa/");
+  expect(identity).toContain("Grupo de Control y Procesamiento Digital de Señales (GCPDS)");
 });
 
 test("the primary portrait loads", async ({ page }) => {

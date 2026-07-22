@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" role="img" aria-labelledby="title desc">
+  <title id="title">Almondsun engineering portfolio banner</title>
+  <desc id="desc">A paper-colored engineering grid crossed by blue signal paths and amber reference points, with the portfolio URL.</desc>
+  <rect width="1584" height="396" fill="#f3efe5"/>
+  <g stroke="#c9c1b1" stroke-opacity=".42">
+    <path d="M0 66h1584M0 132h1584M0 198h1584M0 264h1584M0 330h1584"/>
+    <path d="M132 0v396M264 0v396M396 0v396M528 0v396M660 0v396M792 0v396M924 0v396M1056 0v396M1188 0v396M1320 0v396M1452 0v396"/>
+  </g>
+  <g fill="none" stroke="#23627d">
+    <path d="M475 396 720 0" stroke-width="8"/>
+    <path d="M710 396 955 0" stroke-width="3" stroke-opacity=".55"/>
+    <path d="M945 396 1190 0" stroke-width="2" stroke-opacity=".3"/>
+  </g>
+  <g fill="#88480b">
+    <circle cx="1120" cy="94" r="34"/>
+    <circle cx="1292" cy="198" r="10"/>
+    <circle cx="1030" cy="310" r="7"/>
+  </g>
+  <g fill="#23627d">
+    <circle cx="720" cy="198" r="9"/>
+    <circle cx="955" cy="132" r="6"/>
+  </g>
+  <path d="M1180 314h300" stroke="#c9c1b1" stroke-width="1"/>
+  <text x="1480" y="350" fill="#17242d" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="21" font-weight="700" letter-spacing="1.2" text-anchor="end">almondsun.github.io</text>
+</svg>

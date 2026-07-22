@@ -1,0 +1,23 @@
+---
+import NoteCard from "../components/NoteCard.astro";
+import { notes } from "../data/notes";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Notes"
+  description="Technical notes, experiment reports, and system-design artifacts by Martín Ramírez Espinosa."
+>
+  <header class="page-intro shell section">
+    <p class="eyebrow">Technical notes</p>
+    <h1>Work explained far enough to be questioned.</h1>
+    <p>
+      A curated index of architecture notes, theory chapters, experiment reports, and engineering
+      contracts already maintained with their source projects. This is not a publication list or a
+      posting schedule.
+    </p>
+  </header>
+  <section class="shell note-list" aria-label="Technical notes and reports">
+    {notes.map((note) => <NoteCard note={note} />)}
+  </section>
+</BaseLayout>
