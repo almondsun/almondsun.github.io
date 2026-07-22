@@ -6,4 +6,5 @@ export default defineConfig({
   output: "static",
   integrations: [sitemap()],
   build: { format: "directory" },
+  image: { responsiveStyles: true },
 });

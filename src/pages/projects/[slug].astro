@@ -1,0 +1,192 @@
+---
+import { Image, Picture } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { caseStudies, type CaseStudy } from "../../data/caseStudies";
+
+export function getStaticPaths() {
+  return caseStudies.map((caseStudy) => ({
+    params: { slug: caseStudy.slug },
+    props: { caseStudy },
+  }));
+}
+
+interface Props {
+  caseStudy: CaseStudy;
+}
+
+const { caseStudy } = Astro.props;
+---
+
+<BaseLayout title={`${caseStudy.project} case study`} description={caseStudy.summary}>
+  <article class="case-study">
+    <header class="case-study-hero shell section">
+      <a class="back-link" href="/projects/"><span aria-hidden="true">←</span> All projects</a>
+      <p class="eyebrow">{caseStudy.eyebrow} · Case study</p>
+      <h1>{caseStudy.title}</h1>
+      <p class="case-study-lede">{caseStudy.summary}</p>
+      <dl class="case-study-meta">
+        <div><dt>Project</dt><dd>{caseStudy.project}</dd></div>
+        <div><dt>Period</dt><dd>{caseStudy.period}</dd></div>
+        <div><dt>Role</dt><dd>{caseStudy.role}</dd></div>
+      </dl>
+      <div class="button-row">
+        {
+          caseStudy.links.map((link, index) => (
+            <a
+              class:list={["button", index === 0 ? "button-primary" : "button-secondary"]}
+              href={link.href}
+            >
+              {link.label}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </header>
+
+    <section
+      class="section section-rule shell case-study-section"
+      aria-labelledby="problem-heading"
+    >
+      <div>
+        <p class="eyebrow">The problem</p><h2 id="problem-heading">What had to become visible.</h2>
+      </div>
+      <div class="prose-stack">{caseStudy.problem.map((paragraph) => <p>{paragraph}</p>)}</div>
+    </section>
+
+    <section
+      class="section section-rule shell case-study-section"
+      aria-labelledby="constraints-heading"
+    >
+      <div>
+        <p class="eyebrow">Constraints</p><h2 id="constraints-heading">
+          Rules before implementation.
+        </h2>
+      </div>
+      <ul class="case-study-list">{caseStudy.constraints.map((item) => <li>{item}</li>)}</ul>
+    </section>
+
+    {
+      caseStudy.media[0] && (
+        <figure class="case-study-media shell">
+          {caseStudy.media[0].image.format === "svg" ? (
+            <Image
+              src={caseStudy.media[0].image}
+              alt={caseStudy.media[0].alt}
+              layout="full-width"
+            />
+          ) : (
+            <Picture
+              src={caseStudy.media[0].image}
+              alt={caseStudy.media[0].alt}
+              layout="full-width"
+              widths={[640, 960, 1280, 1500]}
+              sizes="(max-width: 76rem) calc(100vw - 2rem), 76rem"
+              formats={["avif"]}
+              fallbackFormat="webp"
+            />
+          )}
+          <figcaption>{caseStudy.media[0].caption}</figcaption>
+        </figure>
+      )
+    }
+
+    <section class="section section-rule shell" aria-labelledby="decisions-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Engineering decisions</p><h2 id="decisions-heading">
+            The choices that shaped the result.
+          </h2>
+        </div>
+      </div>
+      <div class="decision-grid">
+        {
+          caseStudy.decisions.map((decision) => (
+            <article>
+              <>
+                <h3>{decision.title}</h3>
+                <p>{decision.body}</p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    {
+      caseStudy.media.slice(1).map((media) => (
+        <figure class="case-study-media shell">
+          {media.image.format === "svg" ? (
+            <Image src={media.image} alt={media.alt} layout="full-width" />
+          ) : (
+            <Picture
+              src={media.image}
+              alt={media.alt}
+              layout="full-width"
+              widths={[640, 960, 1280, 1500]}
+              sizes="(max-width: 76rem) calc(100vw - 2rem), 76rem"
+              formats={["avif"]}
+              fallbackFormat="webp"
+            />
+          )}
+          <figcaption>{media.caption}</figcaption>
+        </figure>
+      ))
+    }
+
+    <section
+      class="section section-rule shell case-study-section"
+      aria-labelledby="turning-heading"
+    >
+      <div>
+        <p class="eyebrow">What changed</p><h2 id="turning-heading">
+          Turning points, not a clean-room success story.
+        </h2>
+      </div>
+      <ul class="case-study-list">{caseStudy.turningPoints.map((item) => <li>{item}</li>)}</ul>
+    </section>
+
+    <section
+      class="section section-rule shell case-study-section"
+      aria-labelledby="results-heading"
+    >
+      <div>
+        <p class="eyebrow">Measured result</p><h2 id="results-heading">
+          What the evidence supports.
+        </h2>
+      </div>
+      <ul class="case-study-list case-study-results">
+        {caseStudy.results.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="section section-rule shell case-study-section" aria-labelledby="limits-heading">
+      <div>
+        <p class="eyebrow">Limitations</p><h2 id="limits-heading">What remains unproven.</h2>
+      </div>
+      <ul class="case-study-list">{caseStudy.limitations.map((item) => <li>{item}</li>)}</ul>
+    </section>
+
+    <section
+      class="section section-rule shell case-study-section case-study-close"
+      aria-labelledby="next-heading"
+    >
+      <div>
+        <p class="eyebrow">Production perspective</p><h2 id="next-heading">
+          What I would carry forward.
+        </h2>
+      </div>
+      <div>
+        <ul class="case-study-list">{caseStudy.nextSteps.map((item) => <li>{item}</li>)}</ul>
+        <div class="button-row">
+          <a class="button button-primary" href={caseStudy.links[0].href}
+            >Inspect the source <span aria-hidden="true">↗</span></a
+          >
+          <a class="button button-secondary" href="mailto:maramirezes@unal.edu.co"
+            >Discuss the work</a
+          >
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

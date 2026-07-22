@@ -1,0 +1,17 @@
+verbose = "info"
+format = "detailed"
+no_progress = true
+max_redirects = 10
+max_retries = 3
+max_concurrency = 12
+timeout = 20
+retry_wait_time = 2
+accept = ["200..=299", "301", "302", "303", "307", "308", "403", "429"]
+scheme = ["https"]
+require_https = true
+method = ["head", "get"]
+include_fragments = "full"
+exclude = [
+  '^https://(www\.)?linkedin\.com',
+  '^https://scienti\.minciencias\.gov\.co',
+]

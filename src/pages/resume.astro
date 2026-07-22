@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { resume } from "../data/resume";
+
+const pdfHref = "/Martin_Ramirez_Espinosa_Resume.pdf";
+---
+
+<BaseLayout
+  title="Résumé"
+  description="Résumé of Martín Ramírez Espinosa, a research-oriented engineering and mathematics student working across ML systems, signal processing, and reliable software."
+>
+  <div class="resume-actions shell">
+    <a class="back-link" href="/"><span aria-hidden="true">←</span> Home</a>
+    <a class="button button-primary" href={pdfHref} download>Download PDF</a>
+  </div>
+
+  <article class="resume-sheet shell" aria-labelledby="resume-name">
+    <header class="resume-header">
+      <h1 id="resume-name">{resume.name}</h1>
+      <p class="resume-title">{resume.title}</p>
+      <p class="resume-contact">
+        <span>{resume.location}</span>
+        <a href={`mailto:${resume.email}`}>{resume.email}</a>
+        <a href={resume.portfolio}>almondsun.github.io</a>
+        <a href={resume.github}>github.com/almondsun</a>
+        <a href={resume.linkedin}>LinkedIn</a>
+      </p>
+    </header>
+
+    <section class="resume-summary" aria-label="Professional profile">
+      <p>{resume.profile}</p>
+      <p><strong>{resume.availability}</strong></p>
+    </section>
+
+    <section class="resume-section" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <div class="resume-entries resume-education">
+        {
+          resume.education.map((entry) => (
+            <div class="resume-entry">
+              <div>
+                <h3>{entry.degree}</h3>
+                <p>{entry.institution}</p>
+              </div>
+              <p class="resume-period">{entry.period}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="resume-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Research & experience</h2>
+      <div class="resume-entries">
+        {
+          resume.experience.map((entry) => (
+            <div class="resume-entry resume-entry-detailed">
+              <div>
+                <h3>
+                  {entry.href ? <a href={entry.href}>{entry.role}</a> : entry.role}
+                  <span> · {entry.organization}</span>
+                </h3>
+                <p>{entry.detail}</p>
+              </div>
+              <p class="resume-period">{entry.period}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="resume-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Selected projects</h2>
+      <div class="resume-entries">
+        {
+          resume.projects.map((project) => (
+            <div class="resume-project">
+              <h3>
+                <a href={project.href}>{project.name}</a> <span>· {project.stack}</span>
+              </h3>
+              <ul>
+                {project.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <p class="resume-additional">{resume.additionalProjects}</p>
+    </section>
+
+    <section class="resume-section resume-skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills & languages</h2>
+      <div>
+        <p><strong>Programming:</strong> {resume.skills.languages}</p>
+        <p><strong>Research:</strong> {resume.skills.research}</p>
+        <p><strong>Systems:</strong> {resume.skills.systems}</p>
+        <p><strong>Languages:</strong> {resume.spokenLanguages}</p>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

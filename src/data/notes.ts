@@ -67,7 +67,7 @@ export const notes = [
       "The repository contract separating an implemented TLV320AIC3104 daughterboard, STM32 firmware, host tooling, specifications, and future verification work.",
     topics: ["Embedded systems", "Audio DSP", "Hardware interfaces"],
     href: "https://github.com/almondsun/audiolab#repository-structure",
-    featured: true,
+    featured: false,
   },
 ] as const satisfies readonly Note[];
 

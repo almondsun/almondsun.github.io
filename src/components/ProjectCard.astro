@@ -1,4 +1,5 @@
 ---
+import { Image, Picture } from "astro:assets";
 import type { Project } from "../data/projects";
 
 interface Props {
@@ -7,11 +8,27 @@ interface Props {
 }
 
 const { project, detailed = false } = Astro.props;
+const isVector = project.image.format === "svg";
 ---
 
 <article class:list={["project-card", { "project-card-detailed": detailed }]} id={project.slug}>
   <div class:list={["project-image", { "project-image-contain": project.imageFit === "contain" }]}>
-    <img src={project.image} alt={project.imageAlt} loading="lazy" width="1280" height="720" />
+    {
+      isVector ? (
+        <Image src={project.image} alt={project.imageAlt} loading="lazy" layout="full-width" />
+      ) : (
+        <Picture
+          src={project.image}
+          alt={project.imageAlt}
+          loading="lazy"
+          layout="full-width"
+          widths={[360, 720, 1080, 1440]}
+          sizes="(max-width: 42rem) calc(100vw - 1.25rem), (max-width: 76rem) 50vw, 38rem"
+          formats={["avif"]}
+          fallbackFormat="webp"
+        />
+      )
+    }
   </div>
   <div class="project-body">
     <p class="eyebrow">{project.eyebrow}</p>
@@ -33,6 +50,14 @@ const { project, detailed = false } = Astro.props;
     <div class="project-meta">
       <span>{project.status}</span>
       <div class="project-links">
+        {
+          project.caseStudyHref && (
+            <a href={project.caseStudyHref}>
+              Read case study
+              <span aria-hidden="true"> →</span>
+            </a>
+          )
+        }
         {
           project.links.map((link) => (
             <a href={link.href}>

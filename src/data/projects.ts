@@ -1,3 +1,12 @@
+import type { ImageMetadata } from "astro";
+
+import audiolabImage from "../assets/images/projects/audiolab.png";
+import insightImage from "../assets/images/projects/insight.png";
+import mlTheoryImage from "../assets/images/projects/ml-theory-cover.svg";
+import ragdollImage from "../assets/images/projects/ragdoll.png";
+import sialyticsImage from "../assets/images/projects/sialytics-cover.svg";
+import smallmImage from "../assets/images/projects/smallm-results.svg";
+
 export interface ProjectLink {
   readonly label: string;
   readonly href: string;
@@ -12,11 +21,14 @@ export interface Project {
   readonly evidence: readonly string[];
   readonly stack: readonly string[];
   readonly status: string;
-  readonly image: string;
+  readonly image: ImageMetadata;
   readonly imageAlt: string;
   readonly imageFit?: "cover" | "contain";
   readonly links: readonly ProjectLink[];
   readonly featured: boolean;
+  readonly caseStudyHref?: string;
+  readonly lastVerified: string;
+  readonly sourceRevision: string;
 }
 
 export const projects = [
@@ -34,7 +46,7 @@ export const projects = [
     ],
     stack: ["Python", "Textual", "SQLite FTS5", "OpenAI", "Ollama"],
     status: "OpenAI Build Week submission · v2.2 release candidate",
-    image: "/images/projects/ragdoll.png",
+    image: ragdollImage,
     imageAlt: "RAGdoll research with receipts project banner",
     links: [
       { label: "Repository", href: "https://github.com/almondsun/ragdoll" },
@@ -42,6 +54,9 @@ export const projects = [
       { label: "Video", href: "https://www.youtube.com/watch?v=aytzIq-5S5k" },
     ],
     featured: true,
+    caseStudyHref: "/projects/ragdoll/",
+    lastVerified: "2026-07-21",
+    sourceRevision: "86de0c1092a7694978506def2a9b0eb3d520f284",
   },
   {
     slug: "smallm",
@@ -51,17 +66,20 @@ export const projects = [
     summary:
       "An inspectable PyTorch implementation spanning tokenization, causal attention, training, generation, controlled baselines, sealed evaluation, and reproducible experiment artifacts.",
     evidence: [
-      "Boundary-aware ByteBPE512 beat the matched character control across eight public-domain corpora.",
-      "The final capacity-controlled panel reports every seed, corpus, checkpoint identity, and limitation.",
-      "Completed and frozen at version 1.0 with strict typing, branch coverage above 90%, and a five-minute CPU demo.",
+      "A preregistered panel matched the character control within 0.40% of ByteBPE512's parameter count.",
+      "ByteBPE512 won eight of nine matched sealed-test comparisons; the Douglass reversal remains documented.",
+      "Completed at version 1.0 with strict typing, 182 tests, 90.49% branch coverage, and a five-minute CPU demo.",
     ],
     stack: ["Python", "PyTorch", "Transformers", "Experiment design"],
     status: "Completed research artifact",
-    image: "/images/projects/smallm-results.svg",
+    image: smallmImage,
     imageAlt: "Sealed-test bits per character results for smaLLM tokenizers",
     imageFit: "contain",
     links: [{ label: "Repository", href: "https://github.com/almondsun/smallm" }],
     featured: true,
+    caseStudyHref: "/projects/smallm/",
+    lastVerified: "2026-07-21",
+    sourceRevision: "c5b79db34b26c633c55358733e80d0315042a56c",
   },
   {
     slug: "insight",
@@ -77,10 +95,12 @@ export const projects = [
     ],
     stack: ["Rust", "Tauri", "React", "TypeScript", "SQLite"],
     status: "Cross-platform desktop application",
-    image: "/images/projects/insight.png",
+    image: insightImage,
     imageAlt: "insIGht local Instagram export import interface",
     links: [{ label: "Repository", href: "https://github.com/almondsun/insight" }],
     featured: true,
+    lastVerified: "2026-07-21",
+    sourceRevision: "a27353b0b21a0d81fd0838f2d97a261f38ff9954",
   },
   {
     slug: "audiolab",
@@ -96,11 +116,13 @@ export const projects = [
     ],
     stack: ["C", "C++", "STM32", "USB Audio", "Altium"],
     status: "Hardware implemented · firmware boundary evolving",
-    image: "/images/projects/audiolab.png",
+    image: audiolabImage,
     imageAlt: "Top render of the AudioLab TLV320AIC3104 codec daughterboard",
     imageFit: "contain",
     links: [{ label: "Repository", href: "https://github.com/almondsun/audiolab" }],
-    featured: true,
+    featured: false,
+    lastVerified: "2026-07-21",
+    sourceRevision: "d6377fdcf967ad846bbf2e4d36b7f58683809271",
   },
   {
     slug: "sialytics",
@@ -116,10 +138,12 @@ export const projects = [
     ],
     stack: ["Python", "Playwright", "OpenPyXL", "Jupyter"],
     status: "Validated student tool · Spanish interface",
-    image: "/images/projects/sialytics-cover.svg",
+    image: sialyticsImage,
     imageAlt: "Editorial cover representing SIAlytics academic analytics",
     links: [{ label: "Repository", href: "https://github.com/almondsun/sialytics" }],
     featured: false,
+    lastVerified: "2026-07-21",
+    sourceRevision: "1b5bb382043c1bfb0634a7f4001e472bba96f012",
   },
   {
     slug: "ml-theory",
@@ -135,10 +159,12 @@ export const projects = [
     ],
     stack: ["Mathematics", "Python", "Jupyter", "LaTeX"],
     status: "Archived academic record",
-    image: "/images/projects/ml-theory-cover.svg",
+    image: mlTheoryImage,
     imageAlt: "Editorial cover representing kernels, learning theory, and model assessment",
     links: [{ label: "Repository", href: "https://github.com/almondsun/ml-theory" }],
     featured: false,
+    lastVerified: "2026-07-21",
+    sourceRevision: "46d4d9ff26759f8d23deb559ecc60029f54dcdbc",
   },
 ] as const satisfies readonly Project[];
 
