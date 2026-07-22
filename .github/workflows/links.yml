@@ -23,6 +23,7 @@ jobs:
         with:
           args: >-
             --config .lychee.toml
+            --root-dir "${{ github.workspace }}/dist"
             "dist/**/*.html"
             "README.md"
             "docs/**/*.md"
