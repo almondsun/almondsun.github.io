@@ -51,6 +51,7 @@ test("theme selection persists across navigation", async ({ page }) => {
 
 test("all project images load", async ({ page }) => {
   await page.goto("/projects/");
+  await expect(page.getByRole("heading", { name: "AudioLab" })).toBeVisible();
   const images = page.locator(".project-image img");
   await expect(images).toHaveCount(6);
   for (let index = 0; index < 6; index += 1) {
@@ -75,15 +76,22 @@ test("technical notes expose six real public artifacts", async ({ page }) => {
 
 test("home prioritizes the résumé, RAGdoll, and two technical notes", async ({ page }) => {
   await page.goto("/");
+  await expect(page.locator(".hero-lede")).toHaveText(
+    /building inspectable research and machine-learning systems, local-first products, and reliable software/,
+  );
+  await expect(
+    page.getByRole("heading", { name: "Proof across research, models, and products." }),
+  ).toBeVisible();
   await expect(page.getByRole("link", { name: "View résumé" }).first()).toHaveAttribute(
     "href",
     "/Martin_Ramirez_Espinosa_Resume.pdf",
   );
   await expect(page.getByText(/Available for remote internships/).first()).toBeVisible();
   await expect(page.locator(".project-grid .project-card")).toHaveCount(3);
-  await expect(page.locator(".project-grid .project-card").first().getByRole("heading")).toHaveText(
-    "RAGdoll",
-  );
+  const featuredProjects = page.locator(".project-grid .project-card");
+  await expect(featuredProjects.nth(0).getByRole("heading")).toHaveText("RAGdoll");
+  await expect(featuredProjects.nth(1).getByRole("heading")).toHaveText("smaLLM");
+  await expect(featuredProjects.nth(2).getByRole("heading")).toHaveText("insIGht");
   await expect(page.locator(".note-grid .note-card")).toHaveCount(2);
 });
 
@@ -142,6 +150,12 @@ test("résumé is readable online and downloadable as a PDF", async ({ page, req
     page.getByRole("heading", { level: 1, name: "Martín Ramírez Espinosa" }),
   ).toBeVisible();
   await expect(page.getByText(/Available for remote internships/)).toBeVisible();
+  await expect(
+    page.getByText("Research Engineering · Machine Learning Systems · Reliable Software"),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Undergraduate Research Group Member", { exact: false }),
+  ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Research & experience" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PDF" })).toHaveAttribute(
     "href",

@@ -1,13 +1,13 @@
 export const resume = {
   name: "Martín Ramírez Espinosa",
-  title: "Research Engineering · Machine Learning Systems · Signal Processing",
+  title: "Research Engineering · Machine Learning Systems · Reliable Software",
   location: "Manizales, Colombia",
   email: "maramirezes@unal.edu.co",
   portfolio: "https://almondsun.github.io",
   github: "https://github.com/almondsun",
   linkedin: "https://www.linkedin.com/in/martin-ramirez-espinosa/",
   profile:
-    "Electronic Engineering and Mathematics student and GCPDS member building inspectable ML systems, research software, and signal-processing tools.",
+    "Electronic Engineering and Mathematics student and undergraduate GCPDS member building inspectable research and ML systems, local-first software, and reliable engineering tools.",
   availability:
     "Available for remote internships, part-time engineering roles, and focused contracts alongside my studies in Colombia.",
   education: [
@@ -24,11 +24,11 @@ export const resume = {
   ],
   experience: [
     {
-      role: "Research Group Member",
+      role: "Undergraduate Research Group Member",
       organization: "GCPDS · Universidad Nacional de Colombia",
       period: "Sep 2024 – present",
       detail:
-        "Research training and project development across digital signal processing, machine learning, artificial intelligence, and research software in the LIA-UNAL ecosystem.",
+        "Participate in research training and project development across reproducible ML experimentation, digital signal processing, and research software within LIA-UNAL.",
       href: "https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000001375",
     },
     {
