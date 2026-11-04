@@ -21,6 +21,7 @@ test('approved editorial copy renders in its actual Home and About locations', a
     const home = render('/');
     for (const text of ['Software, Data', '&amp; Automation', 'I build software that brings data, tools and AI models together to make complex processes easier.', 'An engineering and mathematics student drawn to complex systems, practical problem-solving and building things from scratch.']) assert.ok(home.includes(text), text);
     const about = render('/about');
+    assert.equal(content.copy.aboutTitle.replace('\n', ''), 'Understanding systems. Building useful things.');
     for (const text of ['Understanding systems.', 'Building useful things.', 'What I work with', 'Engineering &amp; Mathematics', 'pursuing a double-degree path in Mathematics at Universidad Nacional de Colombia']) assert.ok(about.includes(text), text);
     assert.doesNotMatch(about, /awwwards-badge|>Awwwards</);
     for (const pillar of content.services) {

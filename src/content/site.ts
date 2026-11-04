@@ -22,7 +22,7 @@ export const site: SiteContent = {
   copy: {
     homeTitle: 'Software, Data & Automation',
     homeIntro: 'I build software that brings data, tools and AI models together to make complex processes easier.',
-    aboutTitle: 'Understanding systems.\nBuilding useful things.',
+    aboutTitle: 'Understanding systems. \nBuilding useful things.',
     aboutIntro: 'I’m interested in how systems work—and how to make them more useful. I enjoy building applications from scratch, analyzing data and connecting existing AI models to practical workflows.',
     contactTitle: 'Let’s connect and exchange ideas.',
     contactIntro: 'Share a little about your project. This demo never sends a message.',
