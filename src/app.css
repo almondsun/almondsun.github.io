@@ -26,8 +26,11 @@ main, .main-wrap { position: relative; height: auto; }
 /* Personal preview: preserve the reference gray and keep portraits independent. */
 .home-header .personal-image { top: 0; height: 100%; }
 .home-header .personal-image img {
-  top: 50%; left: 50%; width: auto; height: 65vh; max-width: 90vw;
-  object-fit: contain; transform: translate(-50%, -50%);
+  top: 5vh; left: 50%; width: auto; height: 110vh; max-width: none;
+  object-fit: contain; transform: translateX(-62%);
+}
+@media (max-width: 540px) {
+  .home-header .personal-image img { top: 10vh; }
 }
 .draft-notice {
   position: fixed; bottom: .75rem; left: 50%; transform: translateX(-50%);

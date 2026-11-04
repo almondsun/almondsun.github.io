@@ -42,7 +42,8 @@ test('selected public identity and independent portraits are configured', () => 
   assert.equal(content.presentation?.media?.['profile-picture']?.src, '/media/avatar.png');
   assert.deepEqual(content.presentation?.locationLines, ['Located', 'in', 'Colombia']);
   const css = readFileSync('src/app.css', 'utf8');
-  assert.match(css, /height:\s*65vh/);
+  assert.match(css, /height:\s*110vh/);
+  assert.match(css, /max-width:\s*none/);
   assert.match(css, /object-fit:\s*contain/);
   assert.match(readFileSync('src/main.tsx', 'utf8'), /Draft portfolio.*demonstration.*form does not send/s);
 });
