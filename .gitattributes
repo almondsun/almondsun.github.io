@@ -1,0 +1,6 @@
+# Retain upstream resource bytes; their existing whitespace is intentional provenance.
+public/assets/** -text linguist-vendored whitespace=-trailing-space
+public/media/** -text linguist-vendored
+src/reference/** linguist-generated
+reference-manifest.json linguist-generated
+reference/assets-*.json linguist-generated

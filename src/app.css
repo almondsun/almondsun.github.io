@@ -1,0 +1,38 @@
+/* Local lifecycle/accessibility additions. Structural reference CSS remains attributed. */
+html { scroll-behavior: auto; }
+body { overflow-x: clip; }
+main { overflow: clip; }
+.skip-link { position: fixed; top: 1rem; left: 1rem; padding: .75rem 1rem; background: white; color: #141517; z-index: 1000; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+:focus-visible { outline: 2px solid #455ce9; outline-offset: 5px; }
+h1:focus { outline: none; }
+[role="button"] { cursor: pointer; }
+.field-error { display: block; color: #ff9d9d; font-size: .85em; padding: .5em 0; }
+.field[aria-invalid="true"] { outline: 1px solid #ff9d9d; outline-offset: 5px; }
+.contact-success { min-height: 50vh; padding: 3em 0; }
+.contact-success h2 { color: white; }
+.contact-success p { max-width: 28em; }
+.demo-back { display: inline-block; margin-top: 2em; text-decoration: underline; }
+@media (hover: none), (pointer: coarse) {
+  .mouse-pos-list-image, .mouse-pos-list-btn, .mouse-pos-list-span { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+/* Reference desktop layout was fixed for Locomotive. Native scrolling needs document flow. */
+main, .main-wrap { position: relative; height: auto; }
+
+/* Personal preview: preserve the reference gray and keep portraits independent. */
+.home-header .personal-image { top: 0; height: 100%; }
+.home-header .personal-image img {
+  top: 50%; left: 50%; width: auto; height: 65vh; max-width: 90vw;
+  object-fit: contain; transform: translate(-50%, -50%);
+}
+.draft-notice {
+  position: fixed; bottom: .75rem; left: 50%; transform: translateX(-50%);
+  z-index: 90; width: max-content; max-width: calc(100vw - 2rem);
+  padding: .5rem .75rem; border-radius: .5rem;
+  background: rgba(28, 29, 32, .92); color: white;
+  font-size: .7rem; line-height: 1.4; text-align: center;
+}
