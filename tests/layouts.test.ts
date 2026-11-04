@@ -34,6 +34,7 @@ test('all coordinated views and case media bind arbitrary adopter data', async (
     const { PortfolioPages } = await server.ssrLoadModule('/src/pages.tsx');
     const site = structuredClone(content);
     site.identity.name = 'Jamie Portfolio';
+    site.presentation = { ...site.presentation, text: { ...site.presentation?.text, 'home-hero-name': 'Jamie Portfolio' } };
     site.categories = [{ id: 'research', label: 'Research' }];
     site.projects = Array.from({ length: 13 }, (_, index) => ({ ...structuredClone(content.projects[index % 11]),
       slug: `custom-${index}`, title: `Custom ${index}`, categories: ['research'], location: 'Custom location', roles: ['Research'] }));

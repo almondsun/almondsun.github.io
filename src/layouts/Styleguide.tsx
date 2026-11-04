@@ -1,10 +1,11 @@
 import React, { createElement as h, Fragment } from 'react';
 import type { LayoutProps } from './shared.ts';
-import { layoutCopy, mediaFor } from './shared.ts';
+import { layoutCopy, mediaFor, secondaryContact } from './shared.ts';
 import { LoadingOverlay } from './loader.tsx';
 
 // Browser-normalized reference structure; edit these ordinary React elements directly.
 export function Styleguide({site, project, next, includeLoader = true}: LayoutProps) {
+  const secondary = secondaryContact(site);
   return h(Fragment, null,
     h("div", {"className": "no-scroll-overlay"}),
     includeLoader ? h(LoadingOverlay, { site, label: "Styleguide" }) : null,
@@ -889,16 +890,16 @@ export function Styleguide({site, project, next, includeLoader = true}: LayoutPr
                       )
                     )
                   ),
-                  h("div", {"className": "btn btn-normal"},
-                    h("a", {"href": site.contact?.phone ? 'tel:' + site.contact.phone.replace(/\s/g, '') : '#', "className": "btn-click magnetic", "data-strength": "25", "data-strength-text": "15"},
+                  secondary ? h("div", {"className": "btn btn-normal"},
+                    h("a", {"href": secondary.href, "className": "btn-click magnetic", "data-strength": "25", "data-strength-text": "15"},
                       h("div", {"className": "btn-fill"}),
                       h("span", {"className": "btn-text"},
                         h("span", {"className": "btn-text-inner change"},
-                          site.contact?.phone ?? ''
+                          secondary.label
                         )
                       )
                     )
-                  )
+                  ) : null
                 )
               )
             ),

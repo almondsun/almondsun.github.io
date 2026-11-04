@@ -45,7 +45,7 @@ test('selected public identity and independent portraits are configured', () => 
   assert.match(css, /height:\s*110vh/);
   assert.match(css, /max-width:\s*none/);
   assert.match(css, /object-fit:\s*contain/);
-  assert.match(readFileSync('src/main.tsx', 'utf8'), /Draft portfolio.*demonstration.*form does not send/s);
+  assert.match(readFileSync('src/main.tsx', 'utf8'), /Portfolio in progress.*demonstration.*form does not send/s);
 });
 
 test('static deployment emits identical entry HTML for every known route and the 404 page', () => {

@@ -72,6 +72,7 @@ export type SiteIdentity = {
 export type Contact = {
   email?: string;
   phone?: string;
+  secondaryLink?: Link;
   social?: Link[];
 };
 

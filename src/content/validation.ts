@@ -133,6 +133,7 @@ function validateContact(value: unknown, errors: string[]) {
   if (value.phone !== undefined && !nonEmptyString(value.phone)) {
     errors.push('contact.phone must not be empty when provided.');
   }
+  if (value.secondaryLink !== undefined) validateLink(value.secondaryLink, 'contact.secondaryLink', errors);
   if (value.social !== undefined) {
     if (!Array.isArray(value.social)) errors.push('contact.social must be a link list.');
     else value.social.forEach((link, index) => validateLink(link, `contact.social[${index}]`, errors));

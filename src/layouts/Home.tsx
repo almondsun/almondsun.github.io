@@ -1,10 +1,11 @@
 import React, { createElement as h, Fragment } from 'react';
 import type { LayoutProps } from './shared.ts';
-import { layoutCopy, mediaFor } from './shared.ts';
+import { layoutCopy, mediaFor, secondaryContact } from './shared.ts';
 import { LoadingOverlay } from './loader.tsx';
 
 // Browser-normalized reference structure; edit these ordinary React elements directly.
 export function Home({site, project, next, includeLoader = true}: LayoutProps) {
+  const secondary = secondaryContact(site);
   return h(Fragment, null,
     h("div", {"className": "no-scroll-overlay"}),
     includeLoader ? h(LoadingOverlay, { site, label: "Home" }) : null,
@@ -253,7 +254,7 @@ export function Home({site, project, next, includeLoader = true}: LayoutProps) {
             h("div", {"className": "name-h1", "data-scroll": "", "data-scroll-direction": "horizontal", "data-scroll-speed": "4", "data-scroll-position": "top"},
               h("div", {"className": "name-wrap"},
                 h("h1", {"className": "no-select once-in once-in-secondary"},
-                  site.identity.name,
+                  layoutCopy(site, 'home-hero-name') || site.identity.name,
                   h("span", {"className": "spacer"},
                     "—"
                   )
@@ -443,16 +444,16 @@ export function Home({site, project, next, includeLoader = true}: LayoutProps) {
                       )
                     )
                   ),
-                  h("div", {"className": "btn btn-normal"},
-                    h("a", {"href": site.contact?.phone ? 'tel:' + site.contact.phone.replace(/\s/g, '') : '#', "className": "btn-click magnetic", "data-strength": "25", "data-strength-text": "15"},
+                  secondary ? h("div", {"className": "btn btn-normal"},
+                    h("a", {"href": secondary.href, "className": "btn-click magnetic", "data-strength": "25", "data-strength-text": "15"},
                       h("div", {"className": "btn-fill"}),
                       h("span", {"className": "btn-text"},
                         h("span", {"className": "btn-text-inner change"},
-                          site.contact?.phone ?? ''
+                          secondary.label
                         )
                       )
                     )
-                  )
+                  ) : null
                 )
               )
             ),

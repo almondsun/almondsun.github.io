@@ -72,3 +72,9 @@ Your own copy can use its own repository and account. No credentials are include
 The structural styling and visual reference originate from Dennis Snellenberg's portfolio; see [REFERENCE.md](REFERENCE.md). Original personal content and project media are not shipped in the active template. Original typography, structural styles, generic device frames and decorative assets are retained; missing media uses flat gray local placeholders. Font aliases and legacy CSS class names are presentation metadata, not visible identity.
 
 Separating content from code does not grant rights over the original visual design or retained styles. Attribution is preserved; no blanket open-source license or third-party ownership transfer is asserted. Review rights before redistribution or public deployment. Earlier revisions remain in Git history; the current tree distributes only the maintained template and its development checks.
+
+## Personal presentation and contact slots
+
+The giant Home heading can use `presentation.text['home-hero-name']`; omitting it retains `identity.name`. Other identity uses keep the full name. `contact.secondaryLink` is an optional `{label, href}` link, validated like social links. It takes precedence over the legacy telephone control; when absent, a configured phone retains its `tel:` behavior, otherwise the secondary control is omitted. No contact link changes the local-only form policy.
+
+About can use the `about-pillars-heading` and `about-foundation-title` text slots plus `about-p-01` for the foundation paragraph. The optional foundation heading selects neutral typography instead of the reference award emblem. Contact can use `contact-profile-heading` plus `contact-profile-line-1` and `contact-profile-line-2`; omitting the heading preserves the template business-detail view.

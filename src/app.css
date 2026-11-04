@@ -39,3 +39,6 @@ main, .main-wrap { position: relative; height: auto; }
   background: rgba(28, 29, 32, .92); color: white;
   font-size: .7rem; line-height: 1.4; text-align: center;
 }
+
+/* Neutral academic foundation replaces the reference award emblem for this profile. */
+.foundation-mark { display: flex; align-items: center; justify-content: center; width: 102px; height: 101px; margin-bottom: 2em; color: #999d9e; font-size: 1.25em; letter-spacing: -.04em; }

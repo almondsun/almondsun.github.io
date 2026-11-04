@@ -170,7 +170,7 @@ function Portfolio() {
     if (href !== current.current || navigation.current?.busy) navigation.current?.request({ href });
   }
   return <>
-    <aside className="draft-notice" aria-label="Draft notice">Draft portfolio · Projects and remaining content are demonstration examples. The form does not send messages.</aside>
+    <aside className="draft-notice" aria-label="Draft notice">Portfolio in progress · Project and archive entries are demonstration examples. The form does not send messages.</aside>
     <a className="skip-link" href="#page-content">Skip to content</a>
     <div ref={layer} className="loading-container" aria-hidden="true"><div className="loading-screen">
       <div className="rounded-div-wrap top"><div className="rounded-div" /></div>

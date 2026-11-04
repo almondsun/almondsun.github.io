@@ -1,10 +1,12 @@
 import React, { createElement as h, Fragment } from 'react';
 import type { LayoutProps } from './shared.ts';
-import { layoutCopy, mediaFor } from './shared.ts';
+import { layoutCopy, mediaFor, secondaryContact } from './shared.ts';
 import { LoadingOverlay } from './loader.tsx';
 
 // Browser-normalized reference structure; edit these ordinary React elements directly.
 export function Contact({site, project, next, includeLoader = true}: LayoutProps) {
+  const secondary = secondaryContact(site);
+  const profileHeading = layoutCopy(site, 'contact-profile-heading');
   return h(Fragment, null,
     h("div", {"className": "no-scroll-overlay"}),
     includeLoader ? h(LoadingOverlay, { site, label: "Contact" }) : null,
@@ -273,20 +275,22 @@ export function Contact({site, project, next, includeLoader = true}: LayoutProps
                       )
                     )
                   ),
-                  h("li", {"className": "btn btn-link btn-link-external"},
-                    h("a", {"href": site.contact?.phone ? 'tel:' + site.contact.phone.replace(/\s/g, '') : '#', "className": "btn-click magnetic", "data-strength": "20", "data-strength-text": "10"},
+                  secondary ? h("li", {"className": "btn btn-link btn-link-external"},
+                    h("a", {"href": secondary.href, "className": "btn-click magnetic", "data-strength": "20", "data-strength-text": "10"},
                       h("span", {"className": "btn-text"},
                         h("span", {"className": "btn-text-inner"},
-                          site.contact?.phone ?? ''
+                          secondary.label
                         )
                       )
                     )
-                  )
+                  ) : null
                 ),
                 h("h5", null,
-                  "Business Details"
+                  profileHeading || 'Business Details'
                 ),
                 h("ul", {"className": "links-wrap"},
+                  profileHeading ? ['contact-profile-line-1', 'contact-profile-line-2'].map(key =>
+                    h('li', { key }, h('p', null, layoutCopy(site, key)))) : h(Fragment, null,
                   h("li", null,
                     h("p", null,
                       layoutCopy(site, "contact-p-01")
@@ -306,6 +310,7 @@ export function Contact({site, project, next, includeLoader = true}: LayoutProps
                     h("p", null,
                       layoutCopy(site, "contact-p-04")
                     )
+                  )
                   )
                 ),
                 h("h5", null,
